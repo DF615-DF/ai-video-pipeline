@@ -271,7 +271,7 @@
 
       <div class="vid">
         <video src="./samples/Butterfly_FlyAway_10s_v1.mp4" controls preload="metadata" playsinline></video>
-        <div class="cap"><div class="h">蝴蝶 · Fly Away<span class="badge">风景</span></div><div class="m">H3 自带场景声版本；同名片音频见下「本地配音」一节。</div></div>
+        <div class="cap"><div class="h">蝴蝶 · Fly Away<span class="badge">风景</span></div><div class="m">H3 自带场景声版本；配音流程见下「本地配音」一节。</div></div>
       </div>
 
       <div class="vid">
@@ -287,10 +287,10 @@
 <section id="dub">
   <div class="wrap">
     <h2><span class="n">06</span>本地配音：画面 + 声音闭环</h2>
-    <p class="sub">VoxCPM2 在本地完成 TTS 与声音克隆，补足 H3 不擅长的角色台词/旁白。下面是一段克隆"结"旁白时参考的原声（样例音频）。</p>
+    <p class="sub">VoxCPM2 在本地完成 TTS 与声音克隆，补足 H3 不擅长的角色台词/旁白。下面是一段"结"的日语旁白样本，用于声音克隆的参考音（样例音频）。</p>
     <div class="card">
-      <div class="t" style="font-weight:700;color:var(--gold);margin-bottom:10px">结 · 原声参考音频（克隆用）</div>
-      <audio src="./samples/Butterfly_FlyAway_10s_v1.flac" controls preload="metadata" style="width:100%"></audio>
+      <div class="t" style="font-weight:700;color:var(--gold);margin-bottom:10px">结 · 日语旁白参考音（克隆样本）</div>
+      <audio src="./samples/jie-narration-jp.wav" controls preload="metadata" style="width:100%"></audio>
       <p class="note">工作流：H3 生成自带场景声的画幅 → VoxCPM2 生成克隆旁白 → FFmpeg 混音合成 → 成片。台词以 VoxCPM2 为准，H3 语音仅作粗剪参考。</p>
     </div>
   </div>
@@ -299,7 +299,7 @@
 <section id="repo">
   <div class="wrap">
     <h2><span class="n">07</span>工程素养与如何复现</h2>
-    <p class="sub">这部分是给技术面试官看的"硬证据"：不是炫技，而是把迁移成本、坑位、边界都写清楚。</p>
+    <p class="sub">这一节聚焦工程落地本身：把迁移成本、实际踩过的坑、以及本地方案的边界，都用可复现的方式交代清楚——它要证明的不是"我会用工具"，而是"我理解这套系统为什么这么搭，换一台同配置机器多久能跑起来"。</p>
     <div class="grid2">
       <div class="card">
         <div class="t" style="font-weight:700;color:var(--gold);margin-bottom:10px">包内交付物</div>
