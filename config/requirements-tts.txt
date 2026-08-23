@@ -1,0 +1,9 @@
+voxcpm==2.0.3
+soundfile==0.14.0
+numpy
+
+# torch 单独安装，按目标电脑 CUDA 版本选择
+# torch==2.6.0+cu124 已在本机验证
+
+# Web UI 可选
+# gradio==6.20.0
