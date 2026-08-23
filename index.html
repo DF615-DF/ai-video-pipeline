@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>全自动 AI 视频生产线 · 飞土木作品集</title>
+<style>
+  :root{
+    --bg:#0b0f1a; --panel:#121a2e; --panel2:#16213c; --line:rgba(255,255,255,.09);
+    --txt:#e9edf6; --muted:#9aa6c2; --gold:#e6b566; --gold2:#d9a441;
+    --blue:#7aa2ff; --blue2:#5b8def; --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);
+    font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue);text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  /* nav */
+  nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);
+    background:rgba(11,15,26,.78);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;gap:18px;align-items:center;height:54px;flex-wrap:wrap}
+  nav .brand{font-weight:700;letter-spacing:.5px}
+  nav .brand b{color:var(--gold)}
+  nav .links{margin-left:auto;display:flex;gap:16px;font-size:14px;color:var(--muted)}
+  nav .links a:hover{color:var(--txt)}
+  /* hero */
+  .hero{position:relative;overflow:hidden;
+    background:radial-gradient(1200px 500px at 70% -10%,rgba(122,162,255,.18),transparent 60%),
+               linear-gradient(135deg,#0b1020 0%,#14213d 60%,#1a2b4a 100%);
+    border-bottom:1px solid var(--line)}
+  .hero .wrap{padding:74px 22px 64px}
+  .tag{display:inline-block;font-size:12.5px;color:var(--gold);
+    border:1px solid rgba(230,181,102,.4);border-radius:999px;padding:4px 12px;margin-bottom:18px}
+  .hero h1{font-size:40px;line-height:1.2;margin:0 0 14px;font-weight:800;letter-spacing:.5px}
+  .hero h1 .g{background:linear-gradient(90deg,var(--gold),#ffe6b0);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{font-size:18px;color:#cdd6ea;max-width:760px;margin:0 0 26px}
+  .stats{display:flex;gap:26px;flex-wrap:wrap;margin-top:8px}
+  .stats .s b{display:block;font-size:24px;color:var(--gold);font-weight:800}
+  .stats .s span{font-size:13px;color:var(--muted)}
+  /* sections */
+  section{padding:54px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:27px;margin:0 0 8px;font-weight:800}
+  h2 .n{color:var(--gold);font-size:18px;margin-right:10px;font-weight:700}
+  .sub{color:var(--muted);margin:0 0 26px;max-width:780px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  @media(max-width:780px){.grid2,.grid3{grid-template-columns:1fr}}
+  /* pipeline */
+  .pipe{display:flex;flex-wrap:wrap;align-items:stretch;gap:0;margin:6px 0 4px}
+  .node{background:var(--panel2);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;min-width:150px;flex:1 1 150px;position:relative}
+  .node .t{font-weight:700;font-size:15px}
+  .node .d{font-size:12.5px;color:var(--muted);margin-top:4px}
+  .node .k{font-size:11px;color:var(--gold);margin-top:6px;letter-spacing:.3px}
+  .arrow{display:flex;align-items:center;color:var(--gold);font-size:20px;padding:0 6px}
+  @media(max-width:780px){.arrow{transform:rotate(90deg);padding:4px 0}}
+  .pipe-note{font-size:13px;color:var(--muted);margin-top:14px}
+  .pill{display:inline-block;background:rgba(122,162,255,.12);border:1px solid rgba(122,162,255,.3);
+    color:#bcd0ff;border-radius:999px;padding:3px 11px;font-size:13px;margin:4px 6px 4px 0}
+  /* video grid */
+  .videos{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:780px){.videos{grid-template-columns:1fr}}
+  .vid{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .vid video{width:100%;display:block;background:#000;aspect-ratio:16/9}
+  .vid .cap{padding:13px 15px}
+  .vid .cap .h{font-weight:700;font-size:15px}
+  .vid .cap .m{font-size:13px;color:var(--muted);margin-top:3px}
+  .badge{font-size:11px;color:#0b0f1a;background:var(--gold);border-radius:6px;padding:2px 7px;margin-left:8px;font-weight:700;vertical-align:middle}
+  .vid.feat{grid-column:1/-1}
+  /* table */
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--gold);font-weight:700;font-size:13px}
+  td code,code{background:rgba(255,255,255,.07);padding:1px 6px;border-radius:5px;font-size:13px;color:#ffd9a0}
+  pre{background:#0a0e18;border:1px solid var(--line);border-radius:12px;padding:16px;
+    overflow:auto;font-size:13px;line-height:1.55;color:#cdd6ea}
+  pre .c{color:var(--gold)} pre .m{color:#8aa0c8}
+  .quote{border-left:3px solid var(--gold);padding:4px 0 4px 16px;color:#cdd6ea;font-style:italic}
+  .note{font-size:13px;color:var(--muted);margin-top:10px}
+  .kbd{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;background:#0a0e18;border:1px solid var(--line);border-radius:6px;padding:2px 7px;color:#ffd9a0}
+  footer{padding:34px 0 60px;color:var(--muted);font-size:14px;text-align:center}
+  footer b{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">飞土木 · <b>AI 视频生产线</b></div>
+    <div class="links">
+      <a href="#overview">概览</a>
+      <a href="#arch">架构</a>
+      <a href="#flow">流程</a>
+      <a href="#aesthetic">审美体系</a>
+      <a href="#showcase">成片</a>
+      <a href="#repo">复现</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">本地部署 · 全自动流水线 · AIGC 内容生产</span>
+    <h1>从一句话到<span class="g">带配音的成片</span><br>一条跑在自家显卡上的 AI 视频生产线</h1>
+    <p class="lead">用 Codex 编排、ComfyUI 本地推理 MiniMax H3（开源权重）、VoxCPM2 本地配音，把"剧本 → 生成 → 配音 → 合成"串成可复用的全自动工作流。不调云端 API，数据不出机，按次零计费。</p>
+    <div class="stats">
+      <div class="s"><b>~59GB</b><span>H3 开源权重（INT8 量化）</span></div>
+      <div class="s"><b>RTX 4070S</b><span>12GB 消费级显卡实跑</span></div>
+      <div class="s"><b>10 幕</b><span>《缘结守》原创系列剧本</span></div>
+      <div class="s"><b>7+ 支</b><span>风格成片（含正片）</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="overview">
+  <div class="wrap">
+    <h2><span class="n">01</span>这个项目在解决什么</h2>
+    <p class="sub">不是"用一个网页按钮生成一段视频"，而是把整条内容生产线工程化、可迁移、可复现——这正是 AIGC 内容 / 产品岗最看重的"把 AI 能力产品化"的能力。</p>
+    <div class="grid3">
+      <div class="card">
+        <div class="t" style="font-weight:700;margin-bottom:6px">真·本地推理</div>
+        <p class="m" style="color:var(--muted);margin:0">MiniMax H3 有开源权重，直接在你 RTX 4070S 上跑。数据不出机、按次零成本，不依赖任何云端额度。</p>
+      </div>
+      <div class="card">
+        <div class="t" style="font-weight:700;margin-bottom:6px">全自动编排</div>
+        <p class="m" style="color:var(--muted);margin:0">Codex 调度、<code>submit_h3.py</code> 一键提交整条链，多镜无缝衔接，从脚本到成片少人工干预。</p>
+      </div>
+      <div class="card">
+        <div class="t" style="font-weight:700;margin-bottom:6px">画面+声音闭环</div>
+        <p class="m" style="color:var(--muted);margin:0">VoxCPM2 本地声音克隆补足台词/旁白，H3 自带场景声，后期合成即是一条完整成片。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="arch">
+  <div class="wrap">
+    <h2><span class="n">02</span>系统架构</h2>
+    <p class="sub">五段式流水线，创意输入在左，成片在右；GLM 识图做质检回环。整套链路可打包迁移到另一台同配置机器（README 写了 11 步安装 + 报错对照表）。</p>
+    <div class="pipe">
+      <div class="node"><div class="t">创意输入</div><div class="d">剧本 / 参考图 / 提示词</div><div class="k">人 · 审美</div></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="t">Codex 编排</div><div class="d">调度 · 文档化 · 调 <code>submit_h3.py</code></div><div class="k">智能体</div></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="t">ComfyUI + H3</div><div class="d">本地推理 MiniMax H3<br>832×480 / 243 帧</div><div class="k">RTX 4070S</div></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="t">多镜无缝链</div><div class="d">H3_Seamless_Chain<br>前后一致性锁定</div><div class="k">长视频</div></div>
+    </div>
+    <div class="pipe" style="margin-top:10px">
+      <div class="node"><div class="t">VoxCPM2 配音</div><div class="d">本地 TTS · 声音克隆<br>结旁白</div><div class="k">本地</div></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="t">GLM 识图质检</div><div class="d">抽帧理解 · 一致性核查</div><div class="k">回环</div></div>
+      <div class="arrow">→</div>
+      <div class="node"><div class="t">FFmpeg 合成</div><div class="d">拼接 · 混音 · 出片</div><div class="k">后期</div></div>
+      <div class="arrow">→</div>
+      <div class="node" style="background:linear-gradient(135deg,#1a2748,#22345e);border-color:rgba(230,181,102,.4)"><div class="t" style="color:var(--gold)">成片</div><div class="d">带配音的完整视频</div><div class="k">交付</div></div>
+    </div>
+    <p class="pipe-note">⚠️ 迁移诚实说明：包内<strong>不含</strong>模型权重（H3 ~59GB / VoxCPM2 ~4.6GB）与 GLM Key，需按 README 自行下载；因此本案例定位为「架构 + 代码 + 样例展示」，而非"下载即跑"。</p>
+  </div>
+</section>
+
+<section id="flow">
+  <div class="wrap">
+    <h2><span class="n">03</span>四步流程与踩坑</h2>
+    <p class="sub">每一步都有可复用的脚本与规范，不是一次性手工活。</p>
+    <div class="grid2">
+      <div class="card">
+        <div class="t" style="font-weight:700;color:var(--gold)">① 本地部署</div>
+        <p class="m" style="color:var(--muted)">ComfyUI 0.30.0 原生支持 H3；装两个自定义节点（H3-Multishot、FirstBlockCache），下模型约 59GB。实测 832×480 / 243 帧可跑，低于 12GB 显存降到 56–124 帧。</p>
+        <p class="note">踩坑：启动参数<strong>别加</strong> <span class="kbd">--use-sage-attention</span>（本机缺包会直接报）；OOM 就降帧或换 fl2va 轻量模型。</p>
+      </div>
+      <div class="card">
+        <div class="t" style="font-weight:700;color:var(--gold)">② 生成（H3 + 无缝链）</div>
+        <p class="m" style="color:var(--muted)"><code>submit_h3.py</code> 封装「加载→FirstBlockCache→采样→出视频/音频」；<code>--shots</code> 多镜、<code>--start-image</code> 图生视频、<code>--refs</code> 参考图。帧数只能取 56–243 的档位。</p>
+        <p class="note">踩坑：API 提交漏传 <span class="kbd">codec:"auto"</span>、FirstBlockCache 的 mode 要用 <span class="kbd">\u2014</span> 转义 em dash。</p>
+      </div>
+      <div class="card">
+        <div class="t" style="font-weight:700;color:var(--gold)">③ 本地配音（VoxCPM2）</div>
+        <p class="m" style="color:var(--muted)">本地 TTS + 声音克隆，克隆出《缘结守》"结"的旁白；中/日旁白示例已落盘。H3 自带风声/环境音/动作音效（无 BGM），台词以 VoxCPM2 为准。</p>
+        <p class="note">首次加载模型约 60–90s；克隆参考音频 3–10s 最佳；<span class="kbd">load_denoiser=False</span> 更快更省显存。</p>
+      </div>
+      <div class="card">
+        <div class="t" style="font-weight:700;color:var(--gold)">④ 合成与质检</div>
+        <p class="m" style="color:var(--muted)">FFmpeg 拼接同参数片段、混音；GLM 识图抽帧核查前后一致性。最终成片 = 画面 + 场景声 + 克隆旁白。</p>
+        <p class="note">踩坑：GLM 限流（429）等 1–2 分钟重试；H3ModelLoader 看不到模型先查 diffusion_models 目录并重启。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="aesthetic">
+  <div class="wrap">
+    <h2><span class="n">04</span>审美体系：提示词即作品</h2>
+    <p class="sub">流水线是骨架，审美方法论才是差异化。这里沉淀的不是"按按钮"，而是可复用的创作逻辑——对内容 / AIGC 产品岗而言，这是最值钱的部分。</p>
+
+    <div class="card" style="margin-bottom:18px">
+      <div class="t" style="font-weight:700;color:var(--gold);margin-bottom:10px">风景视频方法论（部分原则）</div>
+      <div class="grid3">
+        <div><b>固定机位 &gt; 运镜</b><p class="m" style="color:var(--muted);font-size:13.5px">AI 运镜匀速无呼吸感最露馅；动态只来自风吹花叶、云流、波光。</p></div>
+        <div><b>真实感铁律</b><p class="m" style="color:var(--muted);font-size:13.5px">胶片颗粒+自然偏色+大气 haze；构图可干净，色彩不能"无菌"。</p></div>
+        <div><b>色彩跟随时段</b><p class="m" style="color:var(--muted);font-size:13.5px">黄昏暖橘×青蓝冷暖对比，蓝调暗调灯火剪影，绝不强行鲜艳。</p></div>
+      </div>
+      <p class="quote" style="margin-top:14px">"复杂构图别用文字硬堆，有明确参考图就直接图生视频——文字堆出来的 AI 容易做假。"</p>
+    </div>
+
+    <div class="card" style="margin-bottom:18px">
+      <div class="t" style="font-weight:700;color:var(--gold);margin-bottom:10px">叙事一致性锁（《缘结守》第二幕示例）</div>
+      <p class="m" style="color:var(--muted);margin:0 0 12px">长视频最大的坑是"前后穿帮"。每一幕都用表格把人物/年龄/服装/道具/时间场景显式锁定，再逐镜头写提示词。</p>
+      <table>
+        <tr><th>项目</th><th>锁定内容</th></tr>
+        <tr><td>人物统一</td><td>結：黑/深棕高马尾+红发绳+红围巾；阿守：银灰微长发+浅色素衣+清冷山感</td></tr>
+        <tr><td>年龄</td><td>結 11 岁孩童期；阿守 12–13 岁山之子</td></tr>
+        <tr><td>服装</td><td>結：小学制服或朴素便服+红围巾；阿守：浅色素净衣，衣角带极淡清冷光感</td></tr>
+        <tr><td>道具</td><td>红围巾、旧毯子、梅干饭团、笔记本；本幕尚未出现草结</td></tr>
+        <tr><td>时间/场景</td><td>雪后清晨到春末，山村/田埂/神龛；光源方向与前一幕衔接</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="t" style="font-weight:700;color:var(--gold);margin-bottom:10px">一段可直接粘贴的 H3 提示词（节选）</div>
+      <pre><span class="m"># 风格与输出</span>
+日式二次元手绘动画风格，吉卜力水粉质感打底，叠加新海诚式柔光与漂浮粒子；
+低饱和度，手绘背景美术质感，非 3D 非 CGI。
+输出规格：16:9 横版，768P+，24fps，单段 4–15 秒；不要字幕/水印/Logo。
+
+<span class="m"># 一致性锁</span>
+人物统一：結（黑棕高马尾+红发绳+红围巾）；阿守（银灰微长发+浅色素衣）。
+年龄锁定：結 11 岁；阿守 12–13 岁。
+道具锁定：红围巾、梅干饭团、笔记本；本幕尚未出现草结。
+
+<span class="m"># 音频（H3 原生生成）</span>
+<span class="c">音频：风声、雪落、鸟鸣、溪水、脚步声；对白有結独白与阿守"守/我出不去"；只保留对白与场景音，不加背景音乐。</span></pre>
+      <p class="note">把"不要 3D / 不要穿模"转写成正向约束，H3 执行更稳定——这是提示词工程里反复验证过的经验。</p>
+    </div>
+  </div>
+</section>
+
+<section id="showcase">
+  <div class="wrap">
+    <h2><span class="n">05</span>成片展示</h2>
+    <p class="sub">以下为代表性成片（本地可播）。《缘结守》不仅有"剧本 + 一致性锁 + 提示词"工程资产，还落了一条完整正片——本地 H3 生成 + VoxCPM2「结」克隆旁白 + 多镜无缝链。</p>
+    <div class="videos">
+
+      <div class="vid feat">
+        <video src="./samples/yuanjieshou.mp4" controls preload="metadata" playsinline></video>
+        <div class="cap"><div class="h">《缘结守》· 完整正片<span class="badge">代表作</span></div><div class="m">本地 H3 生成 + VoxCPM2「结」克隆旁白 + 多镜无缝链长镜头，约 2 分 27 秒。整条流水线审美与工程能力的集大成呈现。</div></div>
+      </div>
+
+      <div class="vid">
+        <video src="./samples/Mikasa_H3Multishot_18s_v1.mp4" controls preload="metadata" playsinline></video>
+        <div class="cap"><div class="h">三笠 · 多镜叙事<span class="badge">动漫</span></div><div class="m">H3 Multishot 18s 连续镜头，演示角色一致性下的多镜衔接。</div></div>
+      </div>
+
+      <div class="vid">
+        <video src="./samples/Ultraman_Shot14v2_v1.mp4" controls preload="metadata" playsinline></video>
+        <div class="cap"><div class="h">奥特曼 · 写实特摄<span class="badge">特摄</span></div><div class="m">本地 H3 写实特摄风，角色锁定 + 分镜速查表落地。</div></div>
+      </div>
+
+      <div class="vid">
+        <video src="./samples/Ultraman_Shot8_v1.mp4" controls preload="metadata" playsinline></video>
+        <div class="cap"><div class="h">奥特曼 · 镜头 8</div><div class="m">同一套角色锁定流程下的另一镜头，验证可复现性。</div></div>
+      </div>
+
+      <div class="vid">
+        <video src="./samples/Scenery_4images_10s_v1.mp4" controls preload="metadata" playsinline></video>
+        <div class="cap"><div class="h">治愈风景 · 四图<span class="badge">风景</span></div><div class="m">固定机位 + 自然动态，蓝调浪漫审美的方法论验证。</div></div>
+      </div>
+
+      <div class="vid">
+        <video src="./samples/Butterfly_FlyAway_10s_v1.mp4" controls preload="metadata" playsinline></video>
+        <div class="cap"><div class="h">蝴蝶 · Fly Away<span class="badge">风景</span></div><div class="m">H3 自带场景声版本；同名片音频见下「本地配音」一节。</div></div>
+      </div>
+
+      <div class="vid">
+        <video src="./samples/FirstPerson_Classroom_10s_v1.mp4" controls preload="metadata" playsinline></video>
+        <div class="cap"><div class="h">第一人称 · 教室</div><div class="m">第一人称视角实验，拓展叙事镜头语言。</div></div>
+      </div>
+
+    </div>
+    <p class="note">部署到线上时，成片需上传到对象存储 / CloudStudio 并替换为托管 URL（当前为本地预览路径）。《缘结守》正片约 170MB，单独走 CloudStudio 部署托管，不在 GitHub 仓库内。</p>
+  </div>
+</section>
+
+<section id="dub">
+  <div class="wrap">
+    <h2><span class="n">06</span>本地配音：画面 + 声音闭环</h2>
+    <p class="sub">VoxCPM2 在本地完成 TTS 与声音克隆，补足 H3 不擅长的角色台词/旁白。下面是一段克隆"结"旁白时参考的原声（样例音频）。</p>
+    <div class="card">
+      <div class="t" style="font-weight:700;color:var(--gold);margin-bottom:10px">结 · 原声参考音频（克隆用）</div>
+      <audio src="./samples/Butterfly_FlyAway_10s_v1.flac" controls preload="metadata" style="width:100%"></audio>
+      <p class="note">工作流：H3 生成自带场景声的画幅 → VoxCPM2 生成克隆旁白 → FFmpeg 混音合成 → 成片。台词以 VoxCPM2 为准，H3 语音仅作粗剪参考。</p>
+    </div>
+  </div>
+</section>
+
+<section id="repo">
+  <div class="wrap">
+    <h2><span class="n">07</span>工程素养与如何复现</h2>
+    <p class="sub">这部分是给技术面试官看的"硬证据"：不是炫技，而是把迁移成本、坑位、边界都写清楚。</p>
+    <div class="grid2">
+      <div class="card">
+        <div class="t" style="font-weight:700;color:var(--gold);margin-bottom:10px">包内交付物</div>
+        <p style="margin:0">
+          <span class="pill">README（11 步安装）</span><span class="pill">workflows ×5 JSON</span>
+          <span class="pill">submit_h3.py</span><span class="pill">glm-vision 识图</span>
+          <span class="pill">prompts（缘结守10幕+规范+速查）</span><span class="pill">config（需求/节点/模型清单）</span>
+          <span class="pill">tts（VoxCPM2 配音+Web UI）</span><span class="pill">samples（6 视频+1 音频）</span>
+        </p>
+      </div>
+      <div class="card">
+        <div class="t" style="font-weight:700;color:var(--gold);margin-bottom:10px">诚实的缺失项（README 原文）</div>
+        <p class="m" style="color:var(--muted);margin:0">① 模型权重 ~59GB 不分发；② 配音模型 ~4.6GB 不分发；③ ComfyUI 本体请下官方 0.30.0；④ GLM Key 私密不随包；⑤ 奥特曼/三笠提示词已落盘；⑥ 提交脚本已固化为 <code>submit_h3.py</code>。</p>
+      </div>
+    </div>
+    <p class="note">复现路径：克隆本仓库 → 按 <code>WORKFLOW.md</code> 第 1–11 步装环境/下模型 → 启动 ComfyUI → 跑 <code>scripts/submit_h3.py</code> 与 tts 脚本。仓库托管本案例网页与全部工程资产；线上 demo（含《缘结守》170MB 正片）见页脚 CloudStudio 链接。</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><b>飞土木</b> · 全自动 AI 视频生产线 — 本地部署 MiniMax H3 + VoxCPM2 配音</p>
+    <p>本页为作品集案例：架构 + 代码 + 样例展示。模型权重与密钥不随包分发，请按 WORKFLOW.md 自行准备。</p>
+    <p>线上 demo（含《缘结守》170MB 正片）：<a href="https://48b9bf0e2a2f4b2493efc650426e0b7b.app.workbuddy.link" target="_blank">https://48b9bf0e2a2f4b2493efc650426e0b7b.app.workbuddy.link</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
