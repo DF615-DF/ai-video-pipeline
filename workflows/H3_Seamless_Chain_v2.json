@@ -1,0 +1,4248 @@
+{
+  "id": "h3-seamless-chain-v1",
+  "revision": 0,
+  "last_node_id": 55,
+  "last_link_id": 75,
+  "nodes": [
+    {
+      "id": 22,
+      "type": "LoadAudio",
+      "pos": [
+        -1151.3867635071097,
+        797.1569197726363
+      ],
+      "size": [
+        409.882421875,
+        136
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 2,
+      "inputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "COMBO",
+          "widget": {
+            "name": "audio"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audioUI",
+          "name": "audioUI",
+          "type": "AUDIO_UI",
+          "widget": {
+            "name": "audioUI"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "AUDIOUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "AUDIO",
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "slot_index": 0,
+          "links": [
+            40
+          ]
+        }
+      ],
+      "title": "voice anchor (optional)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "",
+        null,
+        null
+      ]
+    },
+    {
+      "id": 26,
+      "type": "CreateVideo",
+      "pos": [
+        -294.3993567225504,
+        -544.5906794850309
+      ],
+      "size": [
+        287.1763671875,
+        102
+      ],
+      "flags": {},
+      "order": 49,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 48
+        },
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 47
+        },
+        {
+          "localized_name": "fps",
+          "name": "fps",
+          "type": "FLOAT",
+          "widget": {
+            "name": "fps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "bit_depth",
+          "name": "bit_depth",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "bit_depth"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VIDEO",
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "slot_index": 0,
+          "links": [
+            32
+          ]
+        }
+      ],
+      "title": "mux (fps must match the model's 24)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        24,
+        8
+      ]
+    },
+    {
+      "id": 28,
+      "type": "SaveAudio",
+      "pos": [
+        -18.759509512354928,
+        -544.7346051143835
+      ],
+      "size": [
+        275.2406482742714,
+        112
+      ],
+      "flags": {},
+      "order": 48,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 46
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audioUI",
+          "name": "audioUI",
+          "type": "AUDIO_UI",
+          "widget": {
+            "name": "audioUI"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "title": "SAVE AUDIO (same name, .flac)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "SaveAudio"
+      },
+      "widgets_values": [
+        "audio/H3CHAIN/master"
+      ]
+    },
+    {
+      "id": 27,
+      "type": "SaveVideo",
+      "pos": [
+        -290.81363344046576,
+        -380.16630402798296
+      ],
+      "size": [
+        547.0835324424006,
+        106
+      ],
+      "flags": {},
+      "order": 50,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "link": 32
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "format",
+          "name": "format",
+          "type": "COMBO",
+          "widget": {
+            "name": "format"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "codec",
+          "name": "codec",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "codec"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "video",
+          "name": "video",
+          "type": "VIDEO",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "title": "SAVE VIDEO",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "video/H3CHAIN/master",
+        "auto",
+        "auto"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "MiniMaxH3MemoryEfficientSolAttentionPatch",
+      "pos": [
+        -1730.6555108062994,
+        727.8575148529046
+      ],
+      "size": [
+        257.31362183423926,
+        250
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 3
+        },
+        {
+          "localized_name": "enabled",
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enabled"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "tau",
+          "name": "tau",
+          "type": "FLOAT",
+          "widget": {
+            "name": "tau"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "min_tokens",
+          "name": "min_tokens",
+          "type": "INT",
+          "widget": {
+            "name": "min_tokens"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "strict",
+          "name": "strict",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "strict"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "thresh_type",
+          "name": "thresh_type",
+          "type": "COMBO",
+          "widget": {
+            "name": "thresh_type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "int8_qk",
+          "name": "int8_qk",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "int8_qk"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "int8_pv",
+          "name": "int8_pv",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "int8_pv"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "sink_conditioning",
+          "name": "sink_conditioning",
+          "type": "COMBO",
+          "widget": {
+            "name": "sink_conditioning"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "dense_blocks",
+          "name": "dense_blocks",
+          "type": "STRING",
+          "widget": {
+            "name": "dense_blocks"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            5
+          ]
+        }
+      ],
+      "title": "attention patch  (bypassed - needs ComfyUI-sol-attn)",
+      "properties": {
+        "aux_id": "Saganaki22/ComfyUI-sol-attn",
+        "ver": "90467f1c633ce53af7d77e4a1cc243b5001d89b0",
+        "Node name for S&R": "MiniMaxH3MemoryEfficientSolAttentionPatch"
+      },
+      "widgets_values": [
+        true,
+        1,
+        4096,
+        false,
+        "diag",
+        false,
+        false,
+        "exact_kv",
+        ""
+      ]
+    },
+    {
+      "id": 13,
+      "type": "MiniMaxH3BlockCacheT8",
+      "pos": [
+        -1454.0253826182989,
+        731.5781794781451
+      ],
+      "size": [
+        257.04756020244577,
+        202
+      ],
+      "flags": {},
+      "order": 45,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 11
+        },
+        {
+          "localized_name": "residual_diff_threshold",
+          "name": "residual_diff_threshold",
+          "type": "FLOAT",
+          "widget": {
+            "name": "residual_diff_threshold"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "start_percent",
+          "name": "start_percent",
+          "type": "FLOAT",
+          "widget": {
+            "name": "start_percent"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "end_percent",
+          "name": "end_percent",
+          "type": "FLOAT",
+          "widget": {
+            "name": "end_percent"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "max_consecutive_hits",
+          "name": "max_consecutive_hits",
+          "type": "INT",
+          "widget": {
+            "name": "max_consecutive_hits"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "cache_device",
+          "name": "cache_device",
+          "type": "COMBO",
+          "widget": {
+            "name": "cache_device"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "metric_stride",
+          "name": "metric_stride",
+          "type": "INT",
+          "widget": {
+            "name": "metric_stride"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "verbose",
+          "name": "verbose",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "verbose"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            13
+          ]
+        }
+      ],
+      "title": "block cache  (bypassed - needs comfyui-minimax-h3-blockcache-T8)",
+      "properties": {
+        "aux_id": "T8mars/comfyui-minimax-h3-blockcache-T8",
+        "ver": "3cd968f11a0b717683b6abb0477c43fe175cb608",
+        "Node name for S&R": "MiniMaxH3BlockCacheT8"
+      },
+      "widgets_values": [
+        0.12,
+        0.08,
+        0.95,
+        2,
+        "cpu",
+        8,
+        false
+      ]
+    },
+    {
+      "id": 1,
+      "type": "Note",
+      "pos": [
+        -2587.4848157792794,
+        -545.0694242301886
+      ],
+      "size": [
+        392.8181269515819,
+        304.2779354891302
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "START HERE",
+      "properties": {},
+      "widgets_values": [
+        "START HERE - H3 SEAMLESS CHAIN\n\nRenders a multi-shot scene as ONE continuous take: each shot's last\nframe is handed to the next shot as its first frame (the fl2va\nmodel's trained continuation), the duplicated boundary frame is\ntrimmed, and the seam audio is cut at the quietest gap so words\nsurvive the join.\n\nRUN: write a story into the REWRITER (or paste a script - see PROMPT\nSOURCE), queue once. One press renders the whole chain; the bar\nsitting at 0/N at the start is the first pass over all shots, not a\nhang. Output: output/video/H3CHAIN/ + a matching audio file.\n\nRECIPE (shipped, render-verified): fl2va + beta57 + 14 steps, 243\nframes/shot (~10s). Keep fps at 24 - other rates shift voice accents.\nMASTER CONTROLS drives size/frames/steps AND sampler/scheduler (via\nthe override inputs). VRAM switches all OFF = the verified recipe."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 14,
+      "type": "H3AnySwitch",
+      "pos": [
+        -1365.8898507514912,
+        1039.053590490841
+      ],
+      "size": [
+        159.7818359375,
+        66
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 46,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "use_on",
+          "name": "use_on",
+          "type": "BOOLEAN",
+          "link": 14
+        },
+        {
+          "localized_name": "off_path",
+          "name": "off_path",
+          "shape": 7,
+          "type": "*",
+          "link": 12
+        },
+        {
+          "localized_name": "on_path",
+          "name": "on_path",
+          "shape": 7,
+          "type": "*",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "*",
+          "slot_index": 0,
+          "links": [
+            35
+          ]
+        }
+      ],
+      "title": "gate: block_cache",
+      "properties": {
+        "Node name for S&R": "H3AnySwitch"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 12,
+      "type": "H3AnySwitch",
+      "pos": [
+        -1537.1474896779816,
+        1038.7529652408844
+      ],
+      "size": [
+        141.905859375,
+        66
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "use_on",
+          "name": "use_on",
+          "type": "BOOLEAN",
+          "link": 10
+        },
+        {
+          "localized_name": "off_path",
+          "name": "off_path",
+          "shape": 7,
+          "type": "*",
+          "link": 8
+        },
+        {
+          "localized_name": "on_path",
+          "name": "on_path",
+          "shape": 7,
+          "type": "*",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "*",
+          "slot_index": 0,
+          "links": [
+            11,
+            12
+          ]
+        }
+      ],
+      "title": "gate: chunk_ffn",
+      "properties": {
+        "Node name for S&R": "H3AnySwitch"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 10,
+      "type": "H3AnySwitch",
+      "pos": [
+        -1715.0948480280167,
+        1038.6332069480445
+      ],
+      "size": [
+        140,
+        66
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "use_on",
+          "name": "use_on",
+          "type": "BOOLEAN",
+          "link": 6
+        },
+        {
+          "localized_name": "off_path",
+          "name": "off_path",
+          "shape": 7,
+          "type": "*",
+          "link": 4
+        },
+        {
+          "localized_name": "on_path",
+          "name": "on_path",
+          "shape": 7,
+          "type": "*",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "*",
+          "slot_index": 0,
+          "links": [
+            7,
+            8
+          ]
+        }
+      ],
+      "title": "gate: sol_attn",
+      "properties": {
+        "Node name for S&R": "H3AnySwitch"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 11,
+      "type": "MiniMaxH3ChunkFeedForward",
+      "pos": [
+        -1404.7512636128204,
+        983.9365291124964
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 43,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 7
+        },
+        {
+          "localized_name": "enabled",
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enabled"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "chunks",
+          "name": "chunks",
+          "type": "INT",
+          "widget": {
+            "name": "chunks"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "min_tokens",
+          "name": "min_tokens",
+          "type": "INT",
+          "widget": {
+            "name": "min_tokens"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            9
+          ]
+        }
+      ],
+      "title": "chunk FFN  (bypassed - needs ComfyUI-sol-attn)",
+      "properties": {
+        "aux_id": "Saganaki22/ComfyUI-sol-attn",
+        "ver": "90467f1c633ce53af7d77e4a1cc243b5001d89b0",
+        "Node name for S&R": "MiniMaxH3ChunkFeedForward"
+      },
+      "widgets_values": [
+        true,
+        2,
+        8192
+      ]
+    },
+    {
+      "id": 35,
+      "type": "LoadImage",
+      "pos": [
+        -1719.5856894144158,
+        1618.5371419139042
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            56
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "BOUNDARY PLATE 2",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ]
+    },
+    {
+      "id": 38,
+      "type": "ImageBatch",
+      "pos": [
+        -1089.809041647822,
+        1772.7620089591164
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image1",
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 55
+        },
+        {
+          "localized_name": "image2",
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 56
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            57
+          ]
+        }
+      ],
+      "title": "plates +2",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "ImageBatch"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 36,
+      "type": "LoadImage",
+      "pos": [
+        -1403.1795195106367,
+        1619.887238214723
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            58
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "BOUNDARY PLATE 3",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ]
+    },
+    {
+      "id": 39,
+      "type": "ImageBatch",
+      "pos": [
+        -1088.5070180584812,
+        1879.97659614565
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image1",
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 57
+        },
+        {
+          "localized_name": "image2",
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 58
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            59
+          ]
+        }
+      ],
+      "title": "plates +3",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "ImageBatch"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 40,
+      "type": "H3OptionalImage",
+      "pos": [
+        -1710.8742937634638,
+        1145.0167441085214
+      ],
+      "size": [
+        364.66953125,
+        58
+      ],
+      "flags": {},
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 59
+        },
+        {
+          "localized_name": "enabled",
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enabled"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            60
+          ]
+        }
+      ],
+      "title": "FFLF plates gate (flf_chain only)",
+      "properties": {
+        "Node name for S&R": "H3OptionalImage"
+      },
+      "widgets_values": [
+        false
+      ]
+    },
+    {
+      "id": 37,
+      "type": "ImageBatch",
+      "pos": [
+        -1089.809041647822,
+        1666.1984335672532
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image1",
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 53
+        },
+        {
+          "localized_name": "image2",
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            55
+          ]
+        }
+      ],
+      "title": "plates 0+1",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "ImageBatch"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 32,
+      "type": "RiftPromptSource",
+      "pos": [
+        -2134.6334982272106,
+        -374.066443611953
+      ],
+      "size": [
+        344.134375,
+        218
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "source_file",
+          "name": "source_file",
+          "type": "COMBO",
+          "widget": {
+            "name": "source_file"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "load_cap",
+          "name": "load_cap",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "load_cap"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "start_index",
+          "name": "start_index",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "start_index"
+          },
+          "link": 51
+        },
+        {
+          "localized_name": "character_override",
+          "name": "character_override",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "character_override"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "manual_path",
+          "name": "manual_path",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "manual_path"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "folder",
+          "name": "folder",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "folder"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "story_idea",
+          "name": "story_idea",
+          "shape": 6,
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            66
+          ]
+        },
+        {
+          "localized_name": "character",
+          "name": "character",
+          "shape": 6,
+          "type": "STRING",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "localized_name": "count",
+          "name": "count",
+          "type": "INT",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "title": "PROMPT SET (file / folder of scenes)",
+      "properties": {
+        "Node name for S&R": "RiftPromptSource",
+        "je_widget_values": {
+          "source_file": "TXT: example\\prompt1.txt",
+          "load_cap": 0,
+          "start_index": 0,
+          "character_override": "",
+          "manual_path": "",
+          "folder": "(all)"
+        }
+      },
+      "widgets_values": [
+        "TXT: example/prompt1.txt",
+        0,
+        0,
+        "",
+        "",
+        "(all)"
+      ]
+    },
+    {
+      "id": 42,
+      "type": "Note",
+      "pos": [
+        -2132.6908109243614,
+        -108.48011878582633
+      ],
+      "size": [
+        343.4270750431351,
+        322.1227572844873
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "EPISODE / BATCH",
+      "properties": {},
+      "widgets_values": [
+        "EPISODE / BATCH SOURCE  (optional)\n\nRenders a whole set of scenes by pressing Queue repeatedly.\n\nPROMPT SET points at a file or folder of scene ideas. EPISODE INDEX\npicks which one and steps by 1 on every queue, so each press renders\nthe next scene in the set.\n\nIts output feeds the REWRITER's story_idea. To type an idea by hand\ninstead, unplug that link - your typed text is still stored on the\nnode underneath."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 41,
+      "type": "LoadAudio",
+      "pos": [
+        -2591.0785872390184,
+        1143.6515396869488
+      ],
+      "size": [
+        413.28671875,
+        136
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 2,
+      "inputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "COMBO",
+          "widget": {
+            "name": "audio"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audioUI",
+          "name": "audioUI",
+          "type": "AUDIO_UI",
+          "widget": {
+            "name": "audioUI"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "AUDIOUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "AUDIO",
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "slot_index": 0,
+          "links": [
+            61
+          ]
+        }
+      ],
+      "title": "AUDIO SPINE (optional)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "",
+        null,
+        null
+      ]
+    },
+    {
+      "id": 23,
+      "type": "Note",
+      "pos": [
+        -1164.93932399798,
+        118.92674526980507
+      ],
+      "size": [
+        432.05058508129764,
+        173.09038111974496
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "ANCHORS",
+      "properties": {},
+      "widgets_values": [
+        "ANCHORS (all optional; defaults = off)\n\nIDENTITY IMAGE (gate below): seeds shot 1 from this picture (I2V).\nLater shots chain as usual. Without it, identity is carried by the\nframe relay + word-for-word descriptions.\nCHARACTER REFS: the sampler also has a reference_images input\n(unwired here) - a batch of portraits carried into EVERY shot as\n<Picture 1>, <Picture 2>; bind them in the prompt text. Verified on\nthe ref2va checkpoint, not the shipped fl2va.\nVOICE: two options, detailed on the SAMPLER note - an audio file\ninto voice_ref (the loader below), or self_anchor_voice which pins\nshot 1's own performed voice automatically."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 18,
+      "type": "VAELoader",
+      "pos": [
+        -1162.0894513803705,
+        20.205734485951496
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 0,
+          "links": [
+            37
+          ]
+        }
+      ],
+      "title": "video VAE",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_fp16.safetensors"
+      ]
+    },
+    {
+      "id": 19,
+      "type": "VAELoader",
+      "pos": [
+        -943.6970907154523,
+        20.57356644939637
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 0,
+          "links": [
+            38
+          ]
+        }
+      ],
+      "title": "audio VAE",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "Note",
+      "pos": [
+        -712.5194353272896,
+        589.3853836482155
+      ],
+      "size": [
+        401.53505175805685,
+        621.35
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "SAMPLER",
+      "properties": {},
+      "widgets_values": [
+        "SAMPLER - every dial\n\nscript: fed by SCRIPT PREVIEW; unplug to hand-edit here.\nshot_count: 0 = one shot per prompt; 1-8 forces the count (extra\n  prompts drop, missing ones continue the last).\nsize/frames/steps + sampler/scheduler: all driven by MASTER\n  CONTROLS (the override inputs carry sampler/scheduler names).\nseed: randomize explores; fix it to make a keeper repeatable.\nseed_per_shot [ON]: measured - varying the seed per shot HOLDS the\n  face; one seed for all shots drifted face AND voice. Leave ON.\n\nVOICE\nself_anchor_voice [ON]: automatic voice pin - shot 1's own audio\n  becomes the reference for every later shot. Write shot 1 with a\n  clean solo line. Best on a ref2va checkpoint; a wired voice_ref\n  file takes priority over it.\n\nTWO-PASS UPSCALE (needs the H3 latent-upscaler pack)\nNOT usable with continuity = context_pin or latent_handoff, or\n  with an audio spine - those carry raw latents / one locked\n  denoise trajectory across the join and a two-pass render cannot\n  preserve either. The node stops with an error naming the clash\n  instead of quietly weakening the join. Available on cut,\n  seamless, seamless_tail, first_frame and flf_chain.\ntwo_pass_upscale [OFF]: every shot renders low-res through\n  pass1_fraction of the steps, upscales in latent space, finishes\n  at full res. Faster than native full-res, sharper than low-res.\nupscale_factor [1.5]: pass-1 size = size/factor (snapped to /32).\npass1_fraction [0.4]: verified clean; past ~0.5 pass 2 cannot\n  erase the upscale pattern and a ghost/moire lattice appears.\nupscale_audio_denoise [0.35]: how much pass 2 may rewrite audio.\n  0 locks pass-1 audio (safest for voice), 1 = full remix.\n\nQUALITY / WORKFLOW\nreference_image_size [match]: 'max' = 2048px refs, best identity,\n  several times slower (ref tokens ride every step).\npreview_first_shot [OFF]: writes shot 1 to output/video/\n  H3_FIRSTSHOT/ the moment it decodes - cancel bad takes early.\n  The full path is printed to the console.\nchain_gain_control [off]: 'flatten' stops seam sharpening on long\n  chains (texture ratchets ~1.3x per join; visible past ~5 shots).\n  Recommended ON for chains longer than ~5 shots.\n\nSeam audio is automatic: the boundary cut lands in the quietest\ngap near each join, then a 40ms equal-power weld. A clipped word\nat a join means dialogue sat too close to a boundary - see the\nwriting rules.\n\nDRIFT - what is on, and what it is worth\nChained shots accrete detail: each one conditions on the\nprevious shot's own output, so invented texture compounds.\nMeasured over TEN shots at 960x544, all three of these on:\n\n  memory_frames 0   the big one. The bank's RECENT slots\n    feed accreted output forward on top of the pin. At 0\n    the only reference is shot 1, which nothing has been\n    added to yet. Luma 1.055 -> 1.022 per hop, chroma\n    1.086 -> 1.039, and the drift stops ACCELERATING\n    (4.2->6.7%/hop becomes 2.3->2.0%). Identity and\n    framing held - framing actually improved.\n  master_normalize luma+contrast   levels brightness AND\n    contrast of the finished chain to one target taken\n    from shot 1. Matching only the mean masks a contrast\n    ratchet while it compounds underneath.\n  pin_renorm on   holds each pinned latent at shot 1's\n    sigma. The pin's own sigma climbs every hop and that\n    is what the next shot is handed.\n\nResidual is about 1.02 per hop. Not zero. Long chains\nstill drift, slowly.\n\nDIALS THAT DO NOTHING HERE - verified in source, not\nguessed. Under context_pin these never fire:\n  join_anchor_noise  noises KEYFRAME latents; context_pin\n                     creates no join keyframes\n  handoff_release    belongs to continuity=latent_handoff\n  bank_ref_noise     reaches bank reference IMAGES, which\n                     measurement shows are not the carrier\nBoth are shipped at 0 so nobody tunes a dead control.\n\npin_noise is small and scene-dependent (-1% to -2% per\nhop) and worse above 0.10. Not the fix it was called in\n2.1.5."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 30,
+      "type": "H3MultishotMemorySampler",
+      "pos": [
+        -712.9886114768343,
+        -540.9185872134501
+      ],
+      "size": [
+        400,
+        1172
+      ],
+      "flags": {},
+      "order": 47,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 35
+        },
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 36
+        },
+        {
+          "localized_name": "video_vae",
+          "name": "video_vae",
+          "type": "VAE",
+          "link": 37
+        },
+        {
+          "localized_name": "audio_vae",
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 38
+        },
+        {
+          "localized_name": "start_image",
+          "name": "start_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 39
+        },
+        {
+          "localized_name": "keyframe_images",
+          "name": "keyframe_images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 60
+        },
+        {
+          "localized_name": "guide_audio",
+          "name": "guide_audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 61
+        },
+        {
+          "localized_name": "reference_images",
+          "name": "reference_images",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 75
+        },
+        {
+          "localized_name": "voice_ref",
+          "name": "voice_ref",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 40
+        },
+        {
+          "localized_name": "sampler_override",
+          "name": "sampler_override",
+          "shape": 7,
+          "type": "STRING",
+          "link": 49
+        },
+        {
+          "localized_name": "scheduler_override",
+          "name": "scheduler_override",
+          "shape": 7,
+          "type": "STRING",
+          "link": 50
+        },
+        {
+          "localized_name": "sigmas",
+          "name": "sigmas",
+          "shape": 7,
+          "type": "SIGMAS",
+          "link": null
+        },
+        {
+          "localized_name": "script",
+          "name": "script",
+          "type": "STRING",
+          "widget": {
+            "name": "script"
+          },
+          "link": 71
+        },
+        {
+          "localized_name": "shot_count",
+          "name": "shot_count",
+          "type": "INT",
+          "widget": {
+            "name": "shot_count"
+          },
+          "link": 62
+        },
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 42
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 43
+        },
+        {
+          "localized_name": "frames_per_shot",
+          "name": "frames_per_shot",
+          "type": "INT",
+          "widget": {
+            "name": "frames_per_shot"
+          },
+          "link": 44
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": 45
+        },
+        {
+          "localized_name": "seed_per_shot",
+          "name": "seed_per_shot",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "seed_per_shot"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "memory_frames",
+          "name": "memory_frames",
+          "type": "INT",
+          "widget": {
+            "name": "memory_frames"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "anchor_frames",
+          "name": "anchor_frames",
+          "type": "INT",
+          "widget": {
+            "name": "anchor_frames"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "bank_pinned",
+          "name": "bank_pinned",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "bank_pinned"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "chain_gain_control",
+          "name": "chain_gain_control",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "chain_gain_control"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "continuity",
+          "name": "continuity",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "continuity"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "bank_clip_frames",
+          "name": "bank_clip_frames",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "bank_clip_frames"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "color_level",
+          "name": "color_level",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "color_level"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "join_anchor_noise",
+          "name": "join_anchor_noise",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "join_anchor_noise"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "join_blend",
+          "name": "join_blend",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "join_blend"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "handoff_release",
+          "name": "handoff_release",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "handoff_release"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "bank_ref_noise",
+          "name": "bank_ref_noise",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "bank_ref_noise"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "end_anchor",
+          "name": "end_anchor",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "end_anchor"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "join_fx",
+          "name": "join_fx",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "join_fx"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audio_lock",
+          "name": "audio_lock",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "audio_lock"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "handoff_taper",
+          "name": "handoff_taper",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "handoff_taper"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "handoff_depth",
+          "name": "handoff_depth",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "handoff_depth"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "self_anchor_voice",
+          "name": "self_anchor_voice",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "self_anchor_voice"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "reference_image_size",
+          "name": "reference_image_size",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "reference_image_size"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "preview_first_shot",
+          "name": "preview_first_shot",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "preview_first_shot"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "output_scale",
+          "name": "output_scale",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "output_scale"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "save_every_shot",
+          "name": "save_every_shot",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "save_every_shot"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "upscale_model_name",
+          "name": "upscale_model_name",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "upscale_model_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "master_normalize",
+          "name": "master_normalize",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "master_normalize"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "pin_frames",
+          "name": "pin_frames",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "pin_frames"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "pin_noise",
+          "name": "pin_noise",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "pin_noise"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "pin_renorm",
+          "name": "pin_renorm",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "pin_renorm"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "master_frames",
+          "name": "master_frames",
+          "type": "IMAGE",
+          "links": [
+            48
+          ]
+        },
+        {
+          "localized_name": "master_audio",
+          "name": "master_audio",
+          "type": "AUDIO",
+          "links": [
+            46,
+            47
+          ]
+        },
+        {
+          "localized_name": "shots_rendered",
+          "name": "shots_rendered",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "localized_name": "video_latents",
+          "name": "video_latents",
+          "type": "LATENT",
+          "links": null
+        },
+        {
+          "localized_name": "audio_latents",
+          "name": "audio_latents",
+          "type": "LATENT",
+          "links": null
+        },
+        {
+          "localized_name": "head_frames",
+          "name": "head_frames",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "H3MultishotMemorySampler",
+        "h3_widget_values": {
+          "script": "A static camera sits at the end of the table and frames both of them from the chest up in a two-shot; the framing never changes. Live-action, shallow depth of field, fine 35mm grain. A man in his fifties with close-cropped grey hair, deep lines around the eyes and a heavy salt-and-pepper moustache, wearing a faded blue mechanic's jacket over a white t-shirt sits on one side of a late-night roadside diner booth: cracked red vinyl seats, a scratched formica table with two chipped white coffee mugs and a steel napkin dispenser, a rain-streaked window behind them reflecting an empty parking lot, and one warm pendant lamp directly above the table as the only light, the rest of the diner falling away into darkness. Across from him sits a woman in her late twenties with dark curly hair tied back, round wire-frame glasses and chipped green nail polish, wearing an oversized cream cable-knit sweater. He leans forward on his forearms, turning his mug slowly on the table, and the man in the faded blue mechanic's jacket says, \"So let me get this straight. The whole street goes dark for six minutes - traffic lights, the gas station, everything - and your shop keeps its lights on.\" He settles back against the vinyl with both hands around his mug and waits, watching her.\n---\nA static camera sits at the end of the table and frames both of them from the chest up in a two-shot; the framing never changes. Live-action, shallow depth of field, fine 35mm grain. A man in his fifties with close-cropped grey hair, deep lines around the eyes and a heavy salt-and-pepper moustache, wearing a faded blue mechanic's jacket over a white t-shirt sits on one side of a late-night roadside diner booth: cracked red vinyl seats, a scratched formica table with two chipped white coffee mugs and a steel napkin dispenser, a rain-streaked window behind them reflecting an empty parking lot, and one warm pendant lamp directly above the table as the only light, the rest of the diner falling away into darkness. Across from him sits a woman in her late twenties with dark curly hair tied back, round wire-frame glasses and chipped green nail polish, wearing an oversized cream cable-knit sweater. Both of them sit exactly as they were, hands resting on the table, the mugs untouched. For the first couple of seconds neither speaks - one of them shifts their weight slightly and breathes - and only then the woman in the cream cable-knit sweater says, \"Not just on. Brighter. The bulbs over the workbench went so white I had to look away. And the meter outside was spinning backwards.\" She settles back with both hands flat on the table and waits, watching him.\n---\nA static camera sits at the end of the table and frames both of them from the chest up in a two-shot; the framing never changes. Live-action, shallow depth of field, fine 35mm grain. A man in his fifties with close-cropped grey hair, deep lines around the eyes and a heavy salt-and-pepper moustache, wearing a faded blue mechanic's jacket over a white t-shirt sits on one side of a late-night roadside diner booth: cracked red vinyl seats, a scratched formica table with two chipped white coffee mugs and a steel napkin dispenser, a rain-streaked window behind them reflecting an empty parking lot, and one warm pendant lamp directly above the table as the only light, the rest of the diner falling away into darkness. Across from him sits a woman in her late twenties with dark curly hair tied back, round wire-frame glasses and chipped green nail polish, wearing an oversized cream cable-knit sweater. Both of them sit exactly as they were, hands resting on the table, the mugs untouched. For the first couple of seconds neither speaks - one of them shifts their weight slightly and breathes - and only then the man in the faded blue mechanic's jacket says, \"Meters do not spin backwards, and buildings do not get brighter when the grid drops. Somebody crossed a line upstream, and you will get a confusing bill.\" He settles back against the vinyl with both hands around his mug and waits, watching her.\n---\nA static camera sits at the end of the table and frames both of them from the chest up in a two-shot; the framing never changes. Live-action, shallow depth of field, fine 35mm grain. A man in his fifties with close-cropped grey hair, deep lines around the eyes and a heavy salt-and-pepper moustache, wearing a faded blue mechanic's jacket over a white t-shirt sits on one side of a late-night roadside diner booth: cracked red vinyl seats, a scratched formica table with two chipped white coffee mugs and a steel napkin dispenser, a rain-streaked window behind them reflecting an empty parking lot, and one warm pendant lamp directly above the table as the only light, the rest of the diner falling away into darkness. Across from him sits a woman in her late twenties with dark curly hair tied back, round wire-frame glasses and chipped green nail polish, wearing an oversized cream cable-knit sweater. Both of them sit exactly as they were, hands resting on the table, the mugs untouched. For the first couple of seconds neither speaks - one of them shifts their weight slightly and breathes - and only then the woman in the cream cable-knit sweater says, \"Then come and look at it yourself. Tomorrow, early, before the utility crew pulls the panel apart. There is nothing upstream of that meter but road.\" She settles back with both hands flat on the table and waits, watching him.",
+          "shot_count": 0,
+          "width": 768,
+          "height": 1344,
+          "frames_per_shot": 243,
+          "seed": 632747968283093,
+          "steps": 20,
+          "seed_per_shot": true,
+          "memory_frames": 0,
+          "anchor_frames": 1,
+          "sampler_name": "euler",
+          "scheduler": "beta57",
+          "bank_pinned": 1,
+          "chain_gain_control": "off",
+          "continuity": "context_pin",
+          "bank_clip_frames": 22,
+          "color_level": "off",
+          "join_anchor_noise": 0,
+          "join_blend": true,
+          "handoff_release": 0,
+          "bank_ref_noise": 0,
+          "end_anchor": false,
+          "join_fx": "off",
+          "audio_lock": false,
+          "handoff_taper": 0,
+          "handoff_depth": "block",
+          "sampler_override": "",
+          "scheduler_override": "",
+          "self_anchor_voice": true,
+          "reference_image_size": "match",
+          "preview_first_shot": false,
+          "output_scale": 1,
+          "save_every_shot": false,
+          "upscale_model_name": "(none)",
+          "master_normalize": "luma+contrast",
+          "pin_frames": "22",
+          "pin_noise": 0.05,
+          "pin_renorm": true
+        }
+      },
+      "widgets_values": [
+        "A static camera sits at the end of the table and frames both of them from the chest up in a two-shot; the framing never changes. Live-action, shallow depth of field, fine 35mm grain. A man in his fifties with close-cropped grey hair, deep lines around the eyes and a heavy salt-and-pepper moustache, wearing a faded blue mechanic's jacket over a white t-shirt sits on one side of a late-night roadside diner booth: cracked red vinyl seats, a scratched formica table with two chipped white coffee mugs and a steel napkin dispenser, a rain-streaked window behind them reflecting an empty parking lot, and one warm pendant lamp directly above the table as the only light, the rest of the diner falling away into darkness. Across from him sits a woman in her late twenties with dark curly hair tied back, round wire-frame glasses and chipped green nail polish, wearing an oversized cream cable-knit sweater. He leans forward on his forearms, turning his mug slowly on the table, and the man in the faded blue mechanic's jacket says, \"So let me get this straight. The whole street goes dark for six minutes - traffic lights, the gas station, everything - and your shop keeps its lights on.\" He settles back against the vinyl with both hands around his mug and waits, watching her.\n---\nA static camera sits at the end of the table and frames both of them from the chest up in a two-shot; the framing never changes. Live-action, shallow depth of field, fine 35mm grain. A man in his fifties with close-cropped grey hair, deep lines around the eyes and a heavy salt-and-pepper moustache, wearing a faded blue mechanic's jacket over a white t-shirt sits on one side of a late-night roadside diner booth: cracked red vinyl seats, a scratched formica table with two chipped white coffee mugs and a steel napkin dispenser, a rain-streaked window behind them reflecting an empty parking lot, and one warm pendant lamp directly above the table as the only light, the rest of the diner falling away into darkness. Across from him sits a woman in her late twenties with dark curly hair tied back, round wire-frame glasses and chipped green nail polish, wearing an oversized cream cable-knit sweater. Both of them sit exactly as they were, hands resting on the table, the mugs untouched. For the first couple of seconds neither speaks - one of them shifts their weight slightly and breathes - and only then the woman in the cream cable-knit sweater says, \"Not just on. Brighter. The bulbs over the workbench went so white I had to look away. And the meter outside was spinning backwards.\" She settles back with both hands flat on the table and waits, watching him.\n---\nA static camera sits at the end of the table and frames both of them from the chest up in a two-shot; the framing never changes. Live-action, shallow depth of field, fine 35mm grain. A man in his fifties with close-cropped grey hair, deep lines around the eyes and a heavy salt-and-pepper moustache, wearing a faded blue mechanic's jacket over a white t-shirt sits on one side of a late-night roadside diner booth: cracked red vinyl seats, a scratched formica table with two chipped white coffee mugs and a steel napkin dispenser, a rain-streaked window behind them reflecting an empty parking lot, and one warm pendant lamp directly above the table as the only light, the rest of the diner falling away into darkness. Across from him sits a woman in her late twenties with dark curly hair tied back, round wire-frame glasses and chipped green nail polish, wearing an oversized cream cable-knit sweater. Both of them sit exactly as they were, hands resting on the table, the mugs untouched. For the first couple of seconds neither speaks - one of them shifts their weight slightly and breathes - and only then the man in the faded blue mechanic's jacket says, \"Meters do not spin backwards, and buildings do not get brighter when the grid drops. Somebody crossed a line upstream, and you will get a confusing bill.\" He settles back against the vinyl with both hands around his mug and waits, watching her.\n---\nA static camera sits at the end of the table and frames both of them from the chest up in a two-shot; the framing never changes. Live-action, shallow depth of field, fine 35mm grain. A man in his fifties with close-cropped grey hair, deep lines around the eyes and a heavy salt-and-pepper moustache, wearing a faded blue mechanic's jacket over a white t-shirt sits on one side of a late-night roadside diner booth: cracked red vinyl seats, a scratched formica table with two chipped white coffee mugs and a steel napkin dispenser, a rain-streaked window behind them reflecting an empty parking lot, and one warm pendant lamp directly above the table as the only light, the rest of the diner falling away into darkness. Across from him sits a woman in her late twenties with dark curly hair tied back, round wire-frame glasses and chipped green nail polish, wearing an oversized cream cable-knit sweater. Both of them sit exactly as they were, hands resting on the table, the mugs untouched. For the first couple of seconds neither speaks - one of them shifts their weight slightly and breathes - and only then the woman in the cream cable-knit sweater says, \"Then come and look at it yourself. Tomorrow, early, before the utility crew pulls the panel apart. There is nothing upstream of that meter but road.\" She settles back with both hands flat on the table and waits, watching him.",
+        0,
+        768,
+        1344,
+        243,
+        632747968283093,
+        "randomize",
+        20,
+        true,
+        0,
+        1,
+        "euler",
+        "beta57",
+        1,
+        "off",
+        "context_pin",
+        22,
+        "off",
+        0,
+        true,
+        0,
+        0,
+        false,
+        "off",
+        false,
+        0,
+        "block",
+        true,
+        "match",
+        false,
+        1,
+        false,
+        "(none)",
+        "luma+contrast",
+        "22",
+        0.05,
+        true
+      ]
+    },
+    {
+      "id": 31,
+      "type": "PrimitiveInt",
+      "pos": [
+        -2136.1685499852674,
+        -534.9182994224714
+      ],
+      "size": [
+        356.999609375,
+        106
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "INT",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "INT",
+          "name": "INT",
+          "type": "INT",
+          "slot_index": 0,
+          "links": [
+            51
+          ]
+        }
+      ],
+      "title": "EPISODE INDEX (increment per queue)",
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "1.3.6",
+        "Node name for S&R": "PrimitiveInt"
+      },
+      "widgets_values": [
+        0,
+        "increment"
+      ],
+      "color": "#322"
+    },
+    {
+      "id": 43,
+      "type": "Note",
+      "pos": [
+        -1102.178265746563,
+        1142.2103379957437
+      ],
+      "size": [
+        367.2680446316913,
+        418.93279949060184
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "FFLF BOUNDARY PLATES",
+      "properties": {},
+      "widgets_values": [
+        "FFLF BOUNDARY PLATES  (only for continuity = flf_chain)\n\nN shots need N+1 plates. Shot i renders BETWEEN plate i and plate\ni+1, so every join is ONE shared picture instead of two independent\nguesses. Four plates cover three shots.\n\nTurn the gate ON *and* set continuity to flf_chain. With the gate\noff, flf_chain stops with a clear error rather than quietly\nrendering an unanchored chain.\n\nPLATE DOCTRINE\n- Generate ONE master still, then CROP the others out of it. Plates\n  generated separately share a description, not a 3-D scene.\n- Never carve plates out of a rendered video.\n- Colour-match the set before rendering; each neighbouring pair is\n  one join, so pairwise difference is what matters.\n- Keep every plate at the render canvas size exactly.\n\nUnused under context_pin - continuity rides in the latents there,\nand the gate can stay off."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 47,
+      "type": "Note",
+      "pos": [
+        -2136,
+        700
+      ],
+      "size": [
+        356,
+        300
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "PROMPT SOURCE SWITCH",
+      "properties": {},
+      "widgets_values": [
+        "PROMPT SOURCE SWITCH\n\nMASTER CONTROLS -> use_file_prompts decides where the scene comes\nfrom, and the switch is lazy so the branch you are not using never\nruns:\n\n  OFF (manual entry) - type the scene into MANUAL SCENE IDEA above.\n  ON  (file / prompt set) - pull it from PROMPT SET, with EPISODE\n      INDEX choosing which entry and stepping on every queue.\n\nSHOT COUNT on the master panel drives the sampler and the prompt\nwriter together, so they cannot disagree. 0 means one shot per\nprompt in the script, and lets the writer decide how many to\nwrite."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 4,
+      "type": "PrimitiveFloat",
+      "pos": [
+        -2581.909539702519,
+        580.6853398198382
+      ],
+      "size": [
+        386.4254263405252,
+        59.57544854310254
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "FLOAT",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "FLOAT",
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "slot_index": 0,
+          "links": [
+            1
+          ]
+        }
+      ],
+      "title": "VRAM RESERVE GB (0 = auto)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "PrimitiveFloat"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#322"
+    },
+    {
+      "id": 45,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -2138.5372756331517,
+        259.70179493478355
+      ],
+      "size": [
+        356,
+        240
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            65
+          ]
+        }
+      ],
+      "title": "MANUAL SCENE IDEA (switch OFF)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "PrimitiveStringMultiline"
+      },
+      "widgets_values": [
+        "Two people talk across a booth in a late-night roadside diner about an impossible power outage: the whole street went dark for six minutes but her repair shop kept running, its lights got brighter, and the meter outside ran backwards. He is a sceptical man in his fifties in a faded blue mechanic's jacket; she is a woman in her late twenties in an oversized cream sweater and round wire-frame glasses. One warm pendant lamp above the table is the only light, rain on the window behind them, static camera at the end of the table holding both of them in a two-shot the whole time. Four shots, one continuous conversation, no camera cuts."
+      ]
+    },
+    {
+      "id": 46,
+      "type": "H3AnySwitch",
+      "pos": [
+        -2136,
+        551.1195352839675
+      ],
+      "size": [
+        356,
+        100
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "use_on",
+          "name": "use_on",
+          "type": "BOOLEAN",
+          "link": 64
+        },
+        {
+          "localized_name": "off_path",
+          "name": "off_path",
+          "shape": 7,
+          "type": "*",
+          "link": 65
+        },
+        {
+          "localized_name": "on_path",
+          "name": "on_path",
+          "shape": 7,
+          "type": "*",
+          "link": 66
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "value",
+          "name": "value",
+          "type": "*",
+          "slot_index": 0,
+          "links": [
+            67
+          ]
+        }
+      ],
+      "title": "prompt source  (OFF manual / ON file)",
+      "properties": {
+        "Node name for S&R": "H3AnySwitch"
+      },
+      "widgets_values": [],
+      "color": "#322"
+    },
+    {
+      "id": 2,
+      "type": "H3StudioControls",
+      "pos": [
+        -2583.872391042373,
+        -193.18239153256155
+      ],
+      "size": [
+        387.1939453125,
+        366
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "frames_per_shot",
+          "name": "frames_per_shot",
+          "type": "INT",
+          "widget": {
+            "name": "frames_per_shot"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "shot_count",
+          "name": "shot_count",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "shot_count"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "use_file_prompts",
+          "name": "use_file_prompts",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "use_file_prompts"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "width",
+          "name": "width",
+          "type": "INT",
+          "slot_index": 0,
+          "links": [
+            42
+          ]
+        },
+        {
+          "localized_name": "height",
+          "name": "height",
+          "type": "INT",
+          "slot_index": 1,
+          "links": [
+            43
+          ]
+        },
+        {
+          "localized_name": "frames_per_shot",
+          "name": "frames_per_shot",
+          "type": "INT",
+          "slot_index": 2,
+          "links": [
+            26,
+            44
+          ]
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "slot_index": 3,
+          "links": [
+            45
+          ]
+        },
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "type": "STRING",
+          "slot_index": 4,
+          "links": [
+            49
+          ]
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "STRING",
+          "slot_index": 5,
+          "links": [
+            50
+          ]
+        },
+        {
+          "localized_name": "shot_count",
+          "name": "shot_count",
+          "type": "INT",
+          "slot_index": 6,
+          "links": [
+            62,
+            63
+          ]
+        },
+        {
+          "localized_name": "use_file_prompts",
+          "name": "use_file_prompts",
+          "type": "BOOLEAN",
+          "slot_index": 7,
+          "links": [
+            64
+          ]
+        }
+      ],
+      "title": "MASTER CONTROLS (size / frames / steps)",
+      "properties": {
+        "Node name for S&R": "H3StudioControls"
+      },
+      "widgets_values": [
+        1280,
+        736,
+        362,
+        14,
+        "euler",
+        "beta57",
+        0,
+        false
+      ],
+      "color": "#322"
+    },
+    {
+      "id": 5,
+      "type": "Note",
+      "pos": [
+        -2580.38196904064,
+        678.2207591032604
+      ],
+      "size": [
+        389.3010168515327,
+        380
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "VRAM / SPEED  -  read before un-bypassing",
+      "properties": {},
+      "widgets_values": [
+        "VRAM / SPEED\n\nTHE THREE PATCH NODES SHIP BYPASSED (purple), and each one needs a\npack that is NOT in this zip. A node whose class is missing kills the\nwhole prompt, so bypassed is the only state that queues everywhere.\n\n  attention patch   ComfyUI-sol-attn\n  chunk FFN         ComfyUI-sol-attn\n                    github.com/Saganaki22/ComfyUI-sol-attn\n  block cache       comfyui-minimax-h3-blockcache-T8\n                    github.com/T8mars/comfyui-minimax-h3-blockcache-T8\n\nTo use one: install its pack, restart, Ctrl+B the node to un-bypass it,\nTHEN turn its switch on below. Both steps - un-bypassing alone changes\nnothing, and flipping the switch with the node still bypassed changes\nnothing either.\n\n(SCRIPT PREVIEW in the prompt column is the same deal: it is ShowText\nfrom github.com/pythongosssss/ComfyUI-Custom-Scripts. It is a leaf, so\nleaving it bypassed costs you the on-canvas preview and nothing else.)\n\nSTART HERE: every switch OFF, VRAM RESERVE at 0. That is the verified\nrecipe AND, on current builds, the fastest route to a working render.\nThe reserve measures each shape and conditioning payload as it renders\nand sizes the pool itself - it has held on both 32GB and 24GB cards.\nReach for the levers below only if a render actually spills, and the\nconsole names it when that happens rather than leaving you guessing.\n\nOpt-in levers, in model-path order:\n\nsol_attn - memory-efficient attention. The biggest VRAM saving at high\n  resolution or long shots. Small quality risk: A/B one render before\n  trusting it for a keeper.\nchunk_ffn - chunks the feed-forward pass. Moderate VRAM saving, small\n  slowdown, no known quality cost.\nblock_cache - skips near-duplicate transformer blocks. This one buys\n  SPEED, not VRAM, and can soften subtle motion - keep OFF for final\n  masters.\n(The other toggles on the panel are not wired in this workflow and do\nnothing here.)\n\nTHE THREE LEVER NODES SHIP BYPASSED (purple). They come from two\noptional third-party packs, and a clean install does not have them:\n\n  sol_attn / chunk_ffn  ->  ComfyUI-sol-attn\n  block_cache           ->  comfyui-minimax-h3-blockcache-T8\n\nBypassed, they are dropped from the prompt entirely and the model\npasses straight through, so the workflow queues without either pack.\nTo actually use one: install its pack, select the node, Ctrl+B to\nun-bypass, THEN turn its gate switch on. Both steps are needed.\n\nVRAM RESERVE - activation headroom on the model loader. Leave it at 0.\n  A hand-set value OVERRIDES the measurement, so a number that was\n  right for one shape becomes wrong for the next. Set one only to dig\n  out of a spill the console has already reported."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 20,
+      "type": "LoadImage",
+      "pos": [
+        -1102.4911284660436,
+        441.8938902819133
+      ],
+      "size": [
+        310.050390625,
+        314.0000000000001
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            19
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "identity anchor image (optional)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "H3OptionalImage",
+      "pos": [
+        -1085.3190184649493,
+        340.32237851820594
+      ],
+      "size": [
+        273.3755859375,
+        58
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 19
+        },
+        {
+          "localized_name": "enabled",
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enabled"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            39
+          ]
+        }
+      ],
+      "title": "identity anchor gate",
+      "properties": {
+        "Node name for S&R": "H3OptionalImage"
+      },
+      "widgets_values": [
+        false
+      ]
+    },
+    {
+      "id": 17,
+      "type": "H3LoraStack",
+      "pos": [
+        -1143.486312807028,
+        -252.27040450310173
+      ],
+      "size": [
+        386.62422412583066,
+        226
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 2
+        },
+        {
+          "localized_name": "lora_1",
+          "name": "lora_1",
+          "type": "COMBO",
+          "widget": {
+            "name": "lora_1"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "strength_1",
+          "name": "strength_1",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_1"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "lora_2",
+          "name": "lora_2",
+          "type": "COMBO",
+          "widget": {
+            "name": "lora_2"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "strength_2",
+          "name": "strength_2",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_2"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "lora_3",
+          "name": "lora_3",
+          "type": "COMBO",
+          "widget": {
+            "name": "lora_3"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "strength_3",
+          "name": "strength_3",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_3"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "lora_4",
+          "name": "lora_4",
+          "type": "COMBO",
+          "widget": {
+            "name": "lora_4"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "strength_4",
+          "name": "strength_4",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_4"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            3,
+            4
+          ]
+        }
+      ],
+      "title": "LoRA stack (inert until a slot is set)",
+      "properties": {
+        "Node name for S&R": "H3LoraStack"
+      },
+      "widgets_values": [
+        "None",
+        0,
+        "None",
+        1,
+        "None",
+        1,
+        "None",
+        1
+      ]
+    },
+    {
+      "id": 16,
+      "type": "H3ClipLoaderAny",
+      "pos": [
+        -1143.4863128070278,
+        -405.09634671059996
+      ],
+      "size": [
+        385.933458933143,
+        106
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip_name",
+          "name": "clip_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "type",
+          "name": "type",
+          "type": "COMBO",
+          "widget": {
+            "name": "type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "mmproj_name",
+          "name": "mmproj_name",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "mmproj_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 0,
+          "links": [
+            36
+          ]
+        }
+      ],
+      "title": "text encoder",
+      "properties": {
+        "Node name for S&R": "H3ClipLoaderAny"
+      },
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax",
+        "(auto)"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "H3ModelLoaderAny",
+      "pos": [
+        -1138.2782184496637,
+        -541.184899110452
+      ],
+      "size": [
+        378.86105961417525,
+        82
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model_name",
+          "name": "model_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "model_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "activation_reserve_gb",
+          "name": "activation_reserve_gb",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "activation_reserve_gb"
+          },
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            2
+          ]
+        }
+      ],
+      "title": "H3 model",
+      "properties": {
+        "Node name for S&R": "H3ModelLoaderAny"
+      },
+      "widgets_values": [
+        "MiniMax-H3-ref2va-curve-Q8_0.gguf",
+        0
+      ]
+    },
+    {
+      "id": 34,
+      "type": "LoadImage",
+      "pos": [
+        -1401.579366573113,
+        1251.6658219664257
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            54
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "BOUNDARY PLATE 1",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ]
+    },
+    {
+      "id": 33,
+      "type": "LoadImage",
+      "pos": [
+        -1722.2680078279002,
+        1252.7361035246017
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            53
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "title": "BOUNDARY PLATE 0",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ]
+    },
+    {
+      "id": 52,
+      "type": "H3OptionalImage",
+      "pos": [
+        -2141.3755431422505,
+        1182.1188164370967
+      ],
+      "size": [
+        363.890234375,
+        58
+      ],
+      "flags": {},
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 74
+        },
+        {
+          "localized_name": "enabled",
+          "name": "enabled",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "enabled"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            75
+          ]
+        }
+      ],
+      "title": "REFERENCE gate (OFF = no references)",
+      "properties": {
+        "Node name for S&R": "H3OptionalImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0"
+      },
+      "widgets_values": [
+        false
+      ]
+    },
+    {
+      "id": 51,
+      "type": "ImageBatch",
+      "pos": [
+        -2135.1110860590643,
+        1141.3483908621852
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image1",
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 72
+        },
+        {
+          "localized_name": "image2",
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 73
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            74
+          ]
+        }
+      ],
+      "title": "references 1+2",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "ImageBatch"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 49,
+      "type": "LoadImage",
+      "pos": [
+        -2106.385741219866,
+        1282.5422720156123
+      ],
+      "size": [
+        300.0083984375,
+        314
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            72
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "title": "REFERENCE 1 (ref2va identity)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ]
+    },
+    {
+      "id": 50,
+      "type": "LoadImage",
+      "pos": [
+        -2107.2140188748253,
+        1632.1443116311364
+      ],
+      "size": [
+        302.8521484375,
+        314
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            73
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "title": "REFERENCE 2 (ref2va identity)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ]
+    },
+    {
+      "id": 44,
+      "type": "Note",
+      "pos": [
+        -2579.8141301558353,
+        1320.2561288218749
+      ],
+      "size": [
+        388.97186019828223,
+        203.10991459919455
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "AUDIO SPINE",
+      "properties": {},
+      "widgets_values": [
+        "AUDIO SPINE  (optional)\n\nPick a file first, THEN unmute - an unmuted loader with no file\nerrors the queue.\n\nEvery shot's audio locks to a slice of one continuous track. Use it\nwhen the whole scene is a single unbroken performance: render once\nat low resolution, keep the audio, then re-render at full size\nagainst it.\n\nLeave it muted to let the chain carry the voice itself, which is the\ndefault path."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 53,
+      "type": "Note",
+      "pos": [
+        -2596.0795008456594,
+        1564.0561398321968
+      ],
+      "size": [
+        425.1419284831991,
+        357.04548604249294
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "REFERENCE IMAGES",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "REFERENCE IMAGES  (ref2va identity)\n\nPortraits of your character, carried into EVERY shot as <Picture 1>,\n<Picture 2>... Bind them in the prompt text - describe the person the\nsame way in every shot and the model matches them to the pictures.\n\nNeeds a ref2va checkpoint. Unlike the identity anchor above, these are\nNOT a first frame: they do not constrain shot 1's composition, they\nonly carry who the person is.\n\nThey also cover shot 1, where the memory bank is still empty - that is\nthe gap they close.\n\nGate OFF = no references, the rest of the graph is unaffected.\nOne image is fine; chain more ImageBatch nodes for a third and fourth."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 54,
+      "type": "Note",
+      "pos": [
+        -40,
+        1900
+      ],
+      "size": [
+        560,
+        620
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "WRITING",
+      "properties": {},
+      "widgets_values": [
+        "WRITING FOR A CLEAN CHAIN\n\nTwo rules that cost nothing and each fix a real failure\nseen in testing.\n\n1. NAME THE SIZE AND SCREEN POSITION of any prop at the\n   frame edge, in every shot's scene block.\n   \"a brass table lamp at the left edge, its shade level\n   with his shoulder, about a third the height of frame\"\n   Shot 1 is the only shot with nothing pinned behind it,\n   so it is the only one whose framing can disagree with\n   the text. Left unstated, a lamp grew 3.8x and slid\n   over ~1.7s starting exactly at the first seam, then\n   held for the remaining 37 seconds. Stating it removed\n   the shift across six arms.\n\n2. NEVER NAME A NEARBY OBJECT IN A SHOT'S CLOSING BEAT.\n   \"She glances down at the reel\" reads as a request for\n   a shot of the reel - and produced exactly that, a\n   close-up insert where the wide should have been.\n   Keep closing beats on the speaker's own body:\n   \"She settles her shoulders\", \"He turns one hand over\".\n\nBoth also protect your own measurements: texture numbers\nmean nothing once the framing breaks, because they then\ntrack content instead of drift."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 3,
+      "type": "H3StudioSwitches",
+      "pos": [
+        -2584.4946932168978,
+        216.53003324327636
+      ],
+      "size": [
+        387.7721060280252,
+        323.57544854310277
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "two_pass_upscale",
+          "name": "two_pass_upscale",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "two_pass_upscale"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "sol_attn",
+          "name": "sol_attn",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "sol_attn"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "chunk_ffn",
+          "name": "chunk_ffn",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "chunk_ffn"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "spectrum",
+          "name": "spectrum",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "spectrum"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "block_cache",
+          "name": "block_cache",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "block_cache"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "dual_clock_sampler",
+          "name": "dual_clock_sampler",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "dual_clock_sampler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "hybrid_cond",
+          "name": "hybrid_cond",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "hybrid_cond"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "two_pass_upscale",
+          "name": "two_pass_upscale",
+          "type": "BOOLEAN",
+          "slot_index": 0,
+          "links": []
+        },
+        {
+          "localized_name": "sol_attn",
+          "name": "sol_attn",
+          "type": "BOOLEAN",
+          "slot_index": 1,
+          "links": [
+            6
+          ]
+        },
+        {
+          "localized_name": "chunk_ffn",
+          "name": "chunk_ffn",
+          "type": "BOOLEAN",
+          "slot_index": 2,
+          "links": [
+            10
+          ]
+        },
+        {
+          "localized_name": "spectrum",
+          "name": "spectrum",
+          "type": "BOOLEAN",
+          "slot_index": 3,
+          "links": []
+        },
+        {
+          "localized_name": "block_cache",
+          "name": "block_cache",
+          "type": "BOOLEAN",
+          "slot_index": 4,
+          "links": [
+            14
+          ]
+        },
+        {
+          "localized_name": "dual_clock_sampler",
+          "name": "dual_clock_sampler",
+          "type": "BOOLEAN",
+          "slot_index": 5,
+          "links": []
+        },
+        {
+          "localized_name": "hybrid_cond",
+          "name": "hybrid_cond",
+          "type": "BOOLEAN",
+          "slot_index": 6,
+          "links": []
+        }
+      ],
+      "title": "VRAM / SPEED SWITCHES (all OFF = verified)",
+      "properties": {
+        "Node name for S&R": "H3StudioSwitches"
+      },
+      "widgets_values": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "color": "#322"
+    },
+    {
+      "id": 6,
+      "type": "JoyEcho_LLMEnhance",
+      "pos": [
+        -1729.7353549979036,
+        -540.6946733729105
+      ],
+      "size": [
+        538.6065449184775,
+        406
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "story_idea",
+          "name": "story_idea",
+          "type": "STRING",
+          "widget": {
+            "name": "story_idea"
+          },
+          "link": 67
+        },
+        {
+          "localized_name": "mode",
+          "name": "mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "mode"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "api_key",
+          "name": "api_key",
+          "type": "STRING",
+          "widget": {
+            "name": "api_key"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "system_prompt",
+          "name": "system_prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "system_prompt"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "base_url",
+          "name": "base_url",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "base_url"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "model_name",
+          "name": "model_name",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "model_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "num_shots",
+          "name": "num_shots",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "num_shots"
+          },
+          "link": 63
+        },
+        {
+          "localized_name": "temperature",
+          "name": "temperature",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "temperature"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "num_frames",
+          "name": "num_frames",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "num_frames"
+          },
+          "link": 26
+        },
+        {
+          "localized_name": "fps",
+          "name": "fps",
+          "shape": 7,
+          "type": "FLOAT",
+          "widget": {
+            "name": "fps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "model_name_custom",
+          "name": "model_name_custom",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "model_name_custom"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "join_style",
+          "name": "join_style",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "join_style"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "unload_model_after",
+          "name": "unload_model_after",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "unload_model_after"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "prompts_json",
+          "name": "prompts_json",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": [
+            27,
+            71
+          ]
+        }
+      ],
+      "title": "REWRITER (story -> chained shot prompts)",
+      "properties": {
+        "Node name for S&R": "JoyEcho_LLMEnhance",
+        "je_widget_values": {
+          "story_idea": "Two people talk across a booth in a late-night roadside diner about an impossible power outage: the whole street went dark for six minutes but her repair shop kept running, its lights got brighter, and the meter outside ran backwards. He is a sceptical man in his fifties in a faded blue mechanic's jacket; she is a woman in her late twenties in an oversized cream sweater and round wire-frame glasses. One warm pendant lamp above the table is the only light, rain on the window behind them, static camera at the end of the table holding both of them in a two-shot the whole time. Four shots, one continuous conversation, no camera cuts.",
+          "mode": "long_story (multi-shot)",
+          "api_key": "",
+          "system_prompt": "",
+          "base_url": "http://localhost:11434/v1",
+          "model_name": "qwen3:14b",
+          "num_shots": 4,
+          "temperature": 0.7,
+          "num_frames": 0,
+          "fps": 24,
+          "model_name_custom": "",
+          "join_style": "continuous take (chained, no cuts)",
+          "unload_model_after": false
+        }
+      },
+      "widgets_values": [
+        "Two people talk across a booth in a late-night roadside diner about an impossible power outage: the whole street went dark for six minutes but her repair shop kept running, its lights got brighter, and the meter outside ran backwards. He is a sceptical man in his fifties in a faded blue mechanic's jacket; she is a woman in her late twenties in an oversized cream sweater and round wire-frame glasses. One warm pendant lamp above the table is the only light, rain on the window behind them, static camera at the end of the table holding both of them in a two-shot the whole time. Four shots, one continuous conversation, no camera cuts.",
+        "long_story (multi-shot)",
+        "",
+        "",
+        "http://localhost:11434/v1",
+        "qwen3:14b",
+        4,
+        0.7,
+        0,
+        24,
+        "",
+        "continuous take (chained, no cuts)",
+        false
+      ]
+    },
+    {
+      "id": 7,
+      "type": "ShowText|pysssss",
+      "pos": [
+        -1727.2882470112193,
+        -87.91830470809279
+      ],
+      "size": [
+        535.26396316576,
+        55.04236985054922
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 40,
+      "mode": 4,
+      "inputs": [
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "STRING",
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "title": "SCRIPT PREVIEW  (bypassed - needs ComfyUI-Custom-Scripts)",
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "609f3afaa74b2f88ef9ce8d939626065e3247469",
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 8,
+      "type": "Note",
+      "pos": [
+        -1715.1380223427502,
+        9.23750494357539
+      ],
+      "size": [
+        514.4047704147279,
+        281.6
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "PROMPT SOURCE",
+      "properties": {},
+      "widgets_values": [
+        "PROMPT SOURCE\n\n1. LLM: describe the scene in story_idea, queue. num_shots 0 = the model decides. base_url/model_name = any OpenAI-compatible endpoint (local servers need no key).\n2. HAND-WRITTEN: mode = \"passthrough (raw JSON, skip LLM)\" and put {\"prompts\":[\"...\",\"...\"]} in story_idea. Plain text with shots separated by --- on its own line also works, pasted straight into the sampler's script box with the link unplugged.\n3. REPEATABLE: the LLM has no seed - after a good run, copy the SCRIPT PREVIEW text into story_idea with passthrough mode.\n\nSCRIPT PREVIEW ships BYPASSED (purple). It is the only node in this workflow from a pack that is not in the zip - ComfyUI-Custom-Scripts - so it is bypassed to keep the graph queueable without it. Install that pack and Ctrl+B the node to read the generated script on canvas; the writer feeds the sampler either way.\n\nCLEAN-JOIN RULES (the LLM applies these via join_style; hand scripts must obey them too): open each later shot holding the previous shot's closing arrangement, ~2 quiet seconds before speech; end settled with ~2s spare; never let a line straddle two shots; repeat every character's appearance description and the room/light description word-for-word in every shot.\n\nLOCAL WRITER? Turn on unload_model_after on the REWRITER. It frees that model from Ollama as soon as the script is written, so the video model gets the card - otherwise it stays loaded for the server's default five minutes, which is the whole of shot 1."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 55,
+      "type": "Note",
+      "pos": [
+        -1735,
+        650
+      ],
+      "size": [
+        548,
+        76
+      ],
+      "flags": {},
+      "order": 51,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "BEFORE YOU UN-BYPASS",
+      "properties": {},
+      "widgets_values": [
+        "Install the pack named in each title first, THEN Ctrl+B the node.\nWithout it, un-bypassing makes the whole workflow un-queueable."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      1,
+      4,
+      0,
+      15,
+      1,
+      "FLOAT"
+    ],
+    [
+      2,
+      15,
+      0,
+      17,
+      0,
+      "MODEL"
+    ],
+    [
+      3,
+      17,
+      0,
+      9,
+      0,
+      "MODEL"
+    ],
+    [
+      4,
+      17,
+      0,
+      10,
+      1,
+      "MODEL"
+    ],
+    [
+      5,
+      9,
+      0,
+      10,
+      2,
+      "MODEL"
+    ],
+    [
+      6,
+      3,
+      1,
+      10,
+      0,
+      "BOOLEAN"
+    ],
+    [
+      7,
+      10,
+      0,
+      11,
+      0,
+      "*"
+    ],
+    [
+      8,
+      10,
+      0,
+      12,
+      1,
+      "*"
+    ],
+    [
+      9,
+      11,
+      0,
+      12,
+      2,
+      "MODEL"
+    ],
+    [
+      10,
+      3,
+      2,
+      12,
+      0,
+      "BOOLEAN"
+    ],
+    [
+      11,
+      12,
+      0,
+      13,
+      0,
+      "*"
+    ],
+    [
+      12,
+      12,
+      0,
+      14,
+      1,
+      "*"
+    ],
+    [
+      13,
+      13,
+      0,
+      14,
+      2,
+      "MODEL"
+    ],
+    [
+      14,
+      3,
+      4,
+      14,
+      0,
+      "BOOLEAN"
+    ],
+    [
+      19,
+      20,
+      0,
+      21,
+      0,
+      "IMAGE"
+    ],
+    [
+      26,
+      2,
+      2,
+      6,
+      8,
+      "INT"
+    ],
+    [
+      27,
+      6,
+      0,
+      7,
+      0,
+      "STRING"
+    ],
+    [
+      32,
+      26,
+      0,
+      27,
+      0,
+      "VIDEO"
+    ],
+    [
+      35,
+      14,
+      0,
+      30,
+      0,
+      "MODEL"
+    ],
+    [
+      36,
+      16,
+      0,
+      30,
+      1,
+      "CLIP"
+    ],
+    [
+      37,
+      18,
+      0,
+      30,
+      2,
+      "VAE"
+    ],
+    [
+      38,
+      19,
+      0,
+      30,
+      3,
+      "VAE"
+    ],
+    [
+      39,
+      21,
+      0,
+      30,
+      4,
+      "IMAGE"
+    ],
+    [
+      40,
+      22,
+      0,
+      30,
+      8,
+      "AUDIO"
+    ],
+    [
+      42,
+      2,
+      0,
+      30,
+      14,
+      "INT"
+    ],
+    [
+      43,
+      2,
+      1,
+      30,
+      15,
+      "INT"
+    ],
+    [
+      44,
+      2,
+      2,
+      30,
+      16,
+      "INT"
+    ],
+    [
+      45,
+      2,
+      3,
+      30,
+      18,
+      "INT"
+    ],
+    [
+      46,
+      30,
+      1,
+      28,
+      0,
+      "AUDIO"
+    ],
+    [
+      47,
+      30,
+      1,
+      26,
+      1,
+      "AUDIO"
+    ],
+    [
+      48,
+      30,
+      0,
+      26,
+      0,
+      "IMAGE"
+    ],
+    [
+      49,
+      2,
+      4,
+      30,
+      9,
+      "STRING"
+    ],
+    [
+      50,
+      2,
+      5,
+      30,
+      10,
+      "STRING"
+    ],
+    [
+      51,
+      31,
+      0,
+      32,
+      2,
+      "INT"
+    ],
+    [
+      53,
+      33,
+      0,
+      37,
+      0,
+      "IMAGE"
+    ],
+    [
+      54,
+      34,
+      0,
+      37,
+      1,
+      "IMAGE"
+    ],
+    [
+      55,
+      37,
+      0,
+      38,
+      0,
+      "IMAGE"
+    ],
+    [
+      56,
+      35,
+      0,
+      38,
+      1,
+      "IMAGE"
+    ],
+    [
+      57,
+      38,
+      0,
+      39,
+      0,
+      "IMAGE"
+    ],
+    [
+      58,
+      36,
+      0,
+      39,
+      1,
+      "IMAGE"
+    ],
+    [
+      59,
+      39,
+      0,
+      40,
+      0,
+      "IMAGE"
+    ],
+    [
+      60,
+      40,
+      0,
+      30,
+      5,
+      "IMAGE"
+    ],
+    [
+      61,
+      41,
+      0,
+      30,
+      6,
+      "AUDIO"
+    ],
+    [
+      62,
+      2,
+      6,
+      30,
+      13,
+      "INT"
+    ],
+    [
+      63,
+      2,
+      6,
+      6,
+      6,
+      "INT"
+    ],
+    [
+      64,
+      2,
+      7,
+      46,
+      0,
+      "BOOLEAN"
+    ],
+    [
+      65,
+      45,
+      0,
+      46,
+      1,
+      "STRING"
+    ],
+    [
+      66,
+      32,
+      0,
+      46,
+      2,
+      "STRING"
+    ],
+    [
+      67,
+      46,
+      0,
+      6,
+      0,
+      "*"
+    ],
+    [
+      71,
+      6,
+      0,
+      30,
+      12,
+      "STRING"
+    ],
+    [
+      72,
+      49,
+      0,
+      51,
+      0,
+      "IMAGE"
+    ],
+    [
+      73,
+      50,
+      0,
+      51,
+      1,
+      "IMAGE"
+    ],
+    [
+      74,
+      51,
+      0,
+      52,
+      0,
+      "IMAGE"
+    ],
+    [
+      75,
+      52,
+      0,
+      30,
+      7,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "MASTER + VRAM",
+      "bounding": [
+        -2602.1120594477547,
+        -619.5191231778178,
+        432,
+        1687.8
+      ],
+      "color": "#3f5159",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "PROMPT SOURCE",
+      "bounding": [
+        -1740.7066151404308,
+        -619.0943652154334,
+        561.6912984979681,
+        1268.7776124904929
+      ],
+      "color": "#88A",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "VRAM PATCHES  -  bypassed: install the pack named in each title BEFORE Ctrl+B",
+      "bounding": [
+        -1742.343337723756,
+        652.1072910101875,
+        563.9698792472402,
+        415.35290069248117
+      ],
+      "color": "#8A8",
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "MODELS + ANCHORS",
+      "bounding": [
+        -1175.842608854641,
+        -619.357083500006,
+        447.5960387642674,
+        1687.4974595949516
+      ],
+      "color": "#3f5159",
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "SAMPLER",
+      "bounding": [
+        -726.2756863113552,
+        -619.2152779999647,
+        427.6698100502074,
+        1860
+      ],
+      "color": "#A88",
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "OUTPUT",
+      "bounding": [
+        -297.9940305686472,
+        -619.2763070073566,
+        566.5300248340491,
+        1366.9923237683279
+      ],
+      "color": "#8A8",
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "EPISODE / BATCH SOURCE",
+      "bounding": [
+        -2170.4929387523225,
+        -619.5880458126338,
+        425.6903404880363,
+        1686.8155748076051
+      ],
+      "color": "#88A",
+      "flags": {}
+    },
+    {
+      "id": 8,
+      "title": "FFLF BOUNDARY PLATES (flf_chain only)",
+      "bounding": [
+        -1744.746819155791,
+        1068.6975142493807,
+        1016.1421912602159,
+        874.8606454007482
+      ],
+      "color": "#A88",
+      "flags": {}
+    },
+    {
+      "id": 9,
+      "title": "AUDIO SPINE",
+      "bounding": [
+        -2597.456279240842,
+        1070.2561288218742,
+        426.08772427155145,
+        461.7661951470641
+      ],
+      "color": "#8A8",
+      "flags": {}
+    },
+    {
+      "id": 10,
+      "title": "REFERENCE IMAGES",
+      "bounding": [
+        -2170.4611614358905,
+        1069.2482151427914,
+        424.6111467542935,
+        874.4660373823979
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9537789148251282,
+      "offset": [
+        3314.6669870353903,
+        1198.7188679551466
+      ]
+    }
+  },
+  "version": 0.4
+}
