@@ -1,0 +1,7 @@
+﻿{
+  "api_key": "在此填入你的 GLM API Key（本机使用 open.bigmodel.cn，模型 glm-4.6v-flash）",
+  "model": "glm-4.6v-flash",
+  "endpoint": "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+  "ffmpeg_path": "ffmpeg",
+  "ffprobe_path": "ffprobe"
+}
