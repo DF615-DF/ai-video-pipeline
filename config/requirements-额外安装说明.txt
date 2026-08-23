@@ -1,0 +1,12 @@
+﻿本机 Python 3.13，torch 2.11.0+cu128（CUDA 12.8）。
+
+1) 安装 torch（先装，再装 ComfyUI requirements）：
+   python -m pip install torch==2.11.0 torchvision==0.26.0 torchaudio==2.11.0 --index-url https://download.pytorch.org/whl/cu128
+
+2) 安装 ComfyUI 依赖（见 requirements.txt）：
+   python -m pip install -r requirements.txt
+
+3) 可选：识别/分析图片用 GLM 脚本（scripts/glm-vision/），只需 requests（已含）。
+
+注意：ComfyUI 0.30.0 要求 Python >= 3.10；本机用 3.13 实测通过。
+不要给启动参数加 --use-sage-attention（缺 sageattention 包会直接报错）。
